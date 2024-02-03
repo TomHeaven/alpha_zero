@@ -9,6 +9,7 @@ import logging
 import sys
 import time
 import timeit
+import datetime
 from collections import deque
 
 
@@ -55,6 +56,17 @@ def extract_args_from_flags_dict(flags_dict: Mapping[Text, Any]) -> Mapping[Text
 
 
 def create_logger(level='INFO'):
+    def beijing(sec, what):
+        beijing_time = datetime.datetime.now() + datetime.timedelta(hours=8)
+        return beijing_time.timetuple()
+
+    logging.Formatter.converter = beijing
+    # logging.basicConfig(
+    #     fmt='%(levelname)s %(asctime)s %(filename)s:%(lineno)d] %(message)s',
+    #     level=logging.INFO,
+    #     datefmt='%Y-%m-%d %H:%M:%S',
+    # )
+    
     handler = logging.StreamHandler(stream=sys.stderr)
     formatter = logging.Formatter(
         fmt='%(levelname)s %(asctime)s %(filename)s:%(lineno)d] %(message)s',
