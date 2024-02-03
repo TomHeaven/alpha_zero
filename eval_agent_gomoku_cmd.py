@@ -12,7 +12,7 @@ import sys
 import torch
 
 FLAGS = flags.FLAGS
-flags.DEFINE_integer('board_size', 13, 'Board size for freestyle Gomoku.')
+flags.DEFINE_integer('board_size', 15, 'Board size for freestyle Gomoku.') # old: 13
 flags.DEFINE_integer(
     'num_stack',
     8,
@@ -28,12 +28,14 @@ flags.DEFINE_integer(
 
 flags.DEFINE_string(
     'black_ckpt',
-    './checkpoints/gomoku/13x13/training_steps_170000.ckpt',
+    #'./checkpoints/gomoku/13x13/training_steps_170000.ckpt',
+    './checkpoints/gomoku/15x15/ training_steps_26000.ckpt',
     'Load the checkpoint file for black player.',
 )
 flags.DEFINE_string(
     'white_ckpt',
-    './checkpoints/gomoku/13x13/training_steps_200000.ckpt',
+    # './checkpoints/gomoku/13x13/training_steps_200000.ckpt',
+    './checkpoints/gomoku/15x15/ training_steps_26000.ckpt',
     'Load the checkpoint file for white player.',
 )
 
