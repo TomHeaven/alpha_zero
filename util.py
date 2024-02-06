@@ -14,7 +14,10 @@ from collections import deque
 
 
 def get_time_stamp(file_name: bool = False) -> str:
-    t = time.localtime()
+    if str(datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo) == 'UTC':
+        t = time.localtime(time.time() + 28800) # Beijing Time (UTC+8)
+    else:
+        t = time.localtime()
     if file_name:
         return time.strftime('%Y%m%d_%H%M%S', t)
     else:
@@ -57,7 +60,9 @@ def extract_args_from_flags_dict(flags_dict: Mapping[Text, Any]) -> Mapping[Text
 
 def create_logger(level='INFO'):
     def beijing(sec, what):
-        beijing_time = datetime.datetime.now() + datetime.timedelta(hours=8)
+        beijing_time = datetime.datetime.now()
+        if str(datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo) == 'UTC':
+            beijing_time += datetime.timedelta(hours=8)
         return beijing_time.timetuple()
 
     logging.Formatter.converter = beijing
