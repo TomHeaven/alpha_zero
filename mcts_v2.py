@@ -321,7 +321,8 @@ def uct_search(
           ∆ ← rollout(n)
           backup(n,∆)
       end for
-      return end function
+      return 
+    end function
     ```
 
     Args:

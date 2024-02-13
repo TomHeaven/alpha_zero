@@ -28,13 +28,13 @@ flags.DEFINE_integer(
 flags.DEFINE_string(
     'black_ckpt',
     # './checkpoints/gomoku/13x13/training_steps_170000.ckpt',
-    './checkpoints/gomoku/15x15/training_steps_25000.ckpt',
+    './checkpoints/gomoku/15x15/training_steps_229000.ckpt',
     'Load the checkpoint file for black player.',
 )
 flags.DEFINE_string(
     'white_ckpt',
     # './checkpoints/gomoku/13x13/training_steps_200000.ckpt',
-    './checkpoints/gomoku/15x15/training_steps_35000.ckpt',
+    './checkpoints/gomoku/15x15/training_steps_229000.ckpt',
     'Load the checkpoint file for white player.',
 )
 
